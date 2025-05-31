@@ -10,10 +10,10 @@ from model.utils import fix_len_compatibility
 
 
 # data parameters
-train_filelist_path = 'resources/filelists/ljspeech/train.txt'
-valid_filelist_path = 'resources/filelists/ljspeech/valid.txt'
-test_filelist_path = 'resources/filelists/ljspeech/test.txt'
-cmudict_path = 'resources/cmu_dictionary'
+train_filelist_path = '/dataNAS/people/ivlopez/speech_assistant/data/grad_tts_data_v2/train.txt' # 'resources/filelists/ljspeech/train.txt'
+valid_filelist_path = '/dataNAS/people/ivlopez/speech_assistant/data/grad_tts_data_v2/val.txt' # 'resources/filelists/ljspeech/valid.txt'
+test_filelist_path = None # 'resources/filelists/ljspeech/test.txt' # It looks like this is not used in the code, so I set it to None
+cmudict_path = '/dataNAS/people/ivlopez/speech_assistant/build_grad_tts/Speech-Backbones/Grad-TTS/resources/cmu_dictionary' # 'resources/cmu_dictionary'
 add_blank = True
 n_feats = 80
 n_spks = 1  # 247 for Libri-TTS filelist and 1 for LJSpeech
@@ -43,11 +43,12 @@ beta_max = 20.0
 pe_scale = 1000  # 1 for `grad-tts-old.pt` checkpoint
 
 # training parameters
-log_dir = 'logs/new_exp'
+# log_dir = '/dataNAS/people/ivlopez/ft_models/custom_grad_tts/gradtts' # 'logs/new_exp'
+log_dir = "/dataNAS/people/ivlopez/ft_models/custom_grad_tts/gradtts_v2"
 test_size = 4
-n_epochs = 10000
+n_epochs = 3000 # 10000
 batch_size = 16
 learning_rate = 1e-4
 seed = 37
-save_every = 1
+save_every = 10 # 1
 out_size = fix_len_compatibility(2*22050//256)

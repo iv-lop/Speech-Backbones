@@ -6,6 +6,11 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 # MIT License for more details.
 
+# set path for python interactive terminal explore:
+# import sys
+# import os
+# sys.path.insert(0, '/dataNAS/people/ivlopez/speech_assistant/build_grad_tts/Speech-Backbones/Grad-TTS')
+
 import numpy as np
 from tqdm import tqdm
 
@@ -65,6 +70,9 @@ if __name__ == "__main__":
 
     print('Initializing data loaders...')
     train_dataset = TextMelDataset(train_filelist_path, cmudict_path, add_blank,
+                                   n_fft, n_feats, sample_rate, hop_length,
+                                   win_length, f_min, f_max)
+    valid_dataset = TextMelDataset(valid_filelist_path, cmudict_path, add_blank,
                                    n_fft, n_feats, sample_rate, hop_length,
                                    win_length, f_min, f_max)
     batch_collate = TextMelBatchCollate()

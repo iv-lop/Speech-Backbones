@@ -2,7 +2,8 @@
 
 import numpy as np
 import torch
-from .model.monotonic_align.core import maximum_path_c
+# from .model.monotonic_align.core import maximum_path_c
+from .core import maximum_path_c
 
 
 def maximum_path(value, mask):  
